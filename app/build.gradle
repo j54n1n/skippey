@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    buildToolsVersion "24.0.2"
 
     defaultConfig {
         applicationId "io.github.j54n1n.skippey"
@@ -10,7 +10,18 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+        /*
+        jackOptions {
+            enabled true
+        }
+        */
     }
+    /*
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    */
     buildTypes {
         release {
             minifyEnabled false
