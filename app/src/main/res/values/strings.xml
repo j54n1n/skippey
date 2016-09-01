@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Skippey</string>
-    <string name="title_activity_main">MainActivity</string>s
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_reverse_title">Reverse keys</string>
+    <string name="pref_reverse_summary">
+        Reverse the skipping assignment of the volume buttons
+    </string>
+
+    <string name="pref_timeout_title">Timeout</string>
+    <string name="pref_timeout_unit">ms</string>
+
+
+    <!-- Settings for Notifications -->
+    <string name="pref_header_notification">Notification</string>
+
+    <string name="pref_vibrate_title">Vibrate</string>
+    <string name="pref_vibrate_summary">Vibrate when tracks are skipped</string>
+
 </resources>

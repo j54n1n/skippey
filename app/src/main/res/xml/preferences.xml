@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.preference.PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.takisoft.fix.support.v7.preference.PreferenceCategory
+        android:title="@string/pref_header_general">
+
+        <android.support.v7.preference.CheckBoxPreference
+            android:key="@string/pref_reverse"
+            android:title="@string/pref_reverse_title"
+            android:summary="@string/pref_reverse_summary"
+            android:defaultValue="@bool/pref_reverse_default" />
+
+        <io.github.j54n1n.skippey.preference.SeekBarPreference
+            android:key="@string/pref_timeout"
+            android:title="@string/pref_timeout_title"
+            app:unit="@string/pref_timeout_unit"
+            app:min="@integer/pref_timeout_min"
+            app:max="@integer/pref_timeout_max"
+            android:defaultValue="@integer/pref_timeout_default" />
+
+    </com.takisoft.fix.support.v7.preference.PreferenceCategory>
+
+    <com.takisoft.fix.support.v7.preference.PreferenceCategory
+        android:title="@string/pref_header_notification">
+
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:key="@string/pref_vibrate"
+            android:title="@string/pref_vibrate_title"
+            android:summary="@string/pref_vibrate_summary"
+            android:defaultValue="@bool/pref_vibrate_default" />
+
+    </com.takisoft.fix.support.v7.preference.PreferenceCategory>
+
+</android.support.v7.preference.PreferenceScreen>

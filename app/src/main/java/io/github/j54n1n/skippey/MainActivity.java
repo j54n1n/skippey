@@ -16,9 +16,11 @@
 
 package io.github.j54n1n.skippey;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
@@ -54,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public static void setupSwitchOptionsMenu(Menu menu) {
+    public void setupSwitchOptionsMenu(Menu menu) {
         // Handle service switch.
         MenuItem menuItem = menu.findItem(R.id.miSwitchService);
-        final SwitchCompat switchService = (SwitchCompat) menuItem.getActionView()
+        final SwitchCompat switchService = (SwitchCompat) MenuItemCompat.getActionView(menuItem)
                 .findViewById(R.id.toolbar_switch);
         setSwitchState(switchService, switchService.isChecked());
         switchService.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setSwitchState(switchService, isChecked);
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
             }
         });
     }

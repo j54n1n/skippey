@@ -24,9 +24,11 @@ import android.media.AudioManager;
 import android.media.AudioManagerCompat;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.KeyEvent;
 
 public final class MediaButtonService extends Service {
 
@@ -62,6 +64,14 @@ public final class MediaButtonService extends Service {
         return START_STICKY;
     }
 
+    private void sendMediaKeyEvent(int keyCode) {
+        long eventTime = SystemClock.uptimeMillis();
+        KeyEvent keyEventDown = new KeyEvent(eventTime, eventTime, KeyEvent.ACTION_DOWN, keyCode, 0);
+        KeyEvent keyEventUp = KeyEvent.changeAction(keyEventDown, KeyEvent.ACTION_UP);
+        AudioManagerCompat.dispatchMediaKeyEvent(getApplicationContext(), keyEventDown);
+        AudioManagerCompat.dispatchMediaKeyEvent(getApplicationContext(), keyEventUp);
+    }
+
     private void checkVolumeChangeInfo(Intent intent) {
         // Update volume change info.
         final VolumeChangeInfo lastVolumeChangeInfo = volumeChangeInfo;
@@ -74,6 +84,7 @@ public final class MediaButtonService extends Service {
                     ", timeoutMillis=" + timeoutMillis);
             if (deltaTimeMillis < timeoutMillis) {
                 //handle skipping
+                sendMediaKeyEvent(KeyEvent.KEYCODE_MEDIA_NEXT);
                 // Compensate volume change.
                 final int streamType = lastVolumeChangeInfo.streamType;
                 final int oldVolume = lastVolumeChangeInfo.oldVolume;

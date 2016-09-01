@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General settings -->
+    <string name="pref_reverse">pref_reverse</string>
+    <bool name="pref_reverse_default">false</bool>
+
+    <string name="pref_timeout">pref_timeout</string>
+    <integer name="pref_timeout_min">200</integer>
+    <integer name="pref_timeout_max">800</integer>
+    <integer name="pref_timeout_default">500</integer>
+
+    <!-- Settings for Notifications -->
+    <string name="pref_vibrate">pref_vibrate</string>
+    <bool name="pref_vibrate_default">false</bool>
+
+</resources>
