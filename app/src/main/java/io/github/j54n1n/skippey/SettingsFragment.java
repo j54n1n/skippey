@@ -43,9 +43,11 @@ public class SettingsFragment extends PreferenceFragmentCompatDividers
     @Override
     public void onCreatePreferencesFix(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.preferences, rootKey);
-        onSharedPreferenceChanged(
-                PreferenceManagerFix.getDefaultSharedPreferences(getActivity()),
-                getString(R.string.pref_timeout)
+        // Set initial preference UI.
+        final SharedPreferences sharedPreferences =
+                PreferenceManagerFix.getDefaultSharedPreferences(getActivity());
+        onSharedPreferenceChanged(sharedPreferences, getString(R.string.pref_service));
+        onSharedPreferenceChanged(sharedPreferences, getString(R.string.pref_timeout)
         );
     }
 
@@ -87,6 +89,13 @@ public class SettingsFragment extends PreferenceFragmentCompatDividers
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        // Set the state of the preferences.
+        if (key.equals(getString(R.string.pref_service))) {
+            final boolean isServiceEnabled = sharedPreferences.getBoolean(
+                    key, getResources().getBoolean(R.bool.pref_service_default)
+            );
+            getPreferenceScreen().setEnabled(isServiceEnabled);
+        }
         // Update summaries of dialog preferences.
         if (key.equals(getString(R.string.pref_timeout))) {
             SeekBarPreference seekBarPreference = (SeekBarPreference) findPreference(key);
