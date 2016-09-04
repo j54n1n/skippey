@@ -20,10 +20,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IInterface;
-import android.util.Log;
 import android.view.KeyEvent;
 
 import java.lang.reflect.Method;
+
+import static io.github.j54n1n.skippey.util.LogUtils.makeLogTag;
+import static io.github.j54n1n.skippey.util.LogUtils.LOGE;
 
 /**
  * AudioManager provides access to volume and ringer mode control.
@@ -33,7 +35,7 @@ import java.lang.reflect.Method;
  */
 public final class AudioManagerCompat {
 
-    private static final String TAG = AudioManagerCompat.class.getSimpleName();
+    private static final String TAG = makeLogTag(AudioManagerCompat.class);
 
     private AudioManagerCompat() { }
 
@@ -133,7 +135,7 @@ public final class AudioManagerCompat {
                 return true;
             }
         } catch (Throwable e) {
-            Log.e(TAG, "Error invoking dispatchMediaKeyEvent:", e);
+            LOGE(TAG, "Error invoking dispatchMediaKeyEvent:", e);
         }
         return false;
     }
@@ -152,7 +154,7 @@ public final class AudioManagerCompat {
             getService.setAccessible(true);
             iAudioService = (IInterface) getService.invoke(null);
         } catch (Throwable e) {
-            Log.e(TAG, "Error obtaining IAudioService:", e);
+            LOGE(TAG, "Error obtaining IAudioService:", e);
         }
         return iAudioService;
     }

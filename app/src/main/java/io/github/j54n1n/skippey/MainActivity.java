@@ -16,17 +16,16 @@
 
 package io.github.j54n1n.skippey;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.preference.PreferenceManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.CompoundButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,15 +36,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -58,16 +48,25 @@ public class MainActivity extends AppCompatActivity {
 
     public void setupSwitchOptionsMenu(Menu menu) {
         // Handle service switch.
-        MenuItem menuItem = menu.findItem(R.id.miSwitchService);
+        MenuItem menuItem = menu.findItem(R.id.menu_item_service);
         final SwitchCompat switchService = (SwitchCompat) MenuItemCompat.getActionView(menuItem)
                 .findViewById(R.id.toolbar_switch);
-        setSwitchState(switchService, switchService.isChecked());
+        final SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(getApplicationContext());
+        final Resources resources = getResources();
+        final boolean isServiceEnabled = sharedPreferences.getBoolean(
+                resources.getString(R.string.pref_service),
+                resources.getBoolean(R.bool.pref_service_default)
+        );
+        setSwitchState(switchService, isServiceEnabled);
         switchService.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 setSwitchState(switchService, isChecked);
-                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(getResources().getString(R.string.pref_service), isChecked);
+                editor.apply();
             }
         });
     }
@@ -78,5 +77,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             buttonView.setText(buttonView.getTextOff());
         }
+        buttonView.setChecked(isChecked);
     }
 }

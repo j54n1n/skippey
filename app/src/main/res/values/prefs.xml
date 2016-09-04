@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Service settings -->
+    <string name="pref_service">pref_service</string>
+    <bool name="pref_service_default">false</bool>
+
     <!-- General settings -->
     <string name="pref_reverse">pref_reverse</string>
     <bool name="pref_reverse_default">false</bool>

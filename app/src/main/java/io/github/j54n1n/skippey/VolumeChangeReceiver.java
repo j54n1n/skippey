@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Julian Sanin
+ * Copyright (C) 2014 & 2016 Julian Sanin
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,18 +19,37 @@ package io.github.j54n1n.skippey;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.media.AudioManager;
 import android.media.AudioManagerCompat;
 import android.os.Build;
 import android.os.PowerManager;
+import android.preference.PreferenceManager;
+
+import static io.github.j54n1n.skippey.util.LogUtils.LOGD;
+import static io.github.j54n1n.skippey.util.LogUtils.makeLogTag;
 
 public class VolumeChangeReceiver extends BroadcastReceiver {
+
+    private static final String TAG = makeLogTag(MediaButtonService.class);
 
     private Context context;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         this.context = context;
+        final SharedPreferences sharedPreferences =
+                PreferenceManager.getDefaultSharedPreferences(context);
+        final Resources resources = context.getResources();
+        final boolean isServiceEnabled = sharedPreferences.getBoolean(
+                resources.getString(R.string.pref_service),
+                resources.getBoolean(R.bool.pref_service_default)
+        );
+        LOGD(TAG, "onReceive: isServiceEnabled=" + isServiceEnabled);
+        if (!isServiceEnabled) {
+            return;
+        }
         String action = intent.getAction();
         switch (action) {
             case AudioManagerCompat.VOLUME_CHANGED_ACTION:
