@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="license_apache_body">
+    <string translatable="false" name="license_apache_body">
         <![CDATA[
 <p>Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); you may not use this
 file except in compliance with the License.</p>
@@ -12,44 +12,52 @@ express or implied. See the License for the specific language governing permissi
 under the License.</p>
         ]]>
     </string>
-    <string name="license_android_support_version">24.2.0</string>
-    <string name="license_android_support_annotation">Android Annotations Support Library</string>
-    <string name="license_android_support_annotation_body">
+    <string translatable="false" name="license_android_support_version">24.2.0</string>
+    <string translatable="false" name="license_android_support_annotation">
+        Android Annotations Support Library
+    </string>
+    <string translatable="false" name="license_android_support_annotation_body">
         <![CDATA[
 <p>Copyright (C) 2013-2015 The Android Open Source Project</p>
         ]]>
     </string>
-    <string name="license_android_support_compat">Android v4 Compat Library</string>
-    <string name="license_android_support_compat_body">
+    <string translatable="false" name="license_android_support_compat">
+        Android v4 Compat Library
+    </string>
+    <string translatable="false" name="license_android_support_compat_body">
         <![CDATA[
 <p>Copyright (C) 2011-2016 The Android Open Source Project</p>
         ]]>
     </string>
-    <string name="license_android_support_fragment">Android v4 Fragment Library</string>
-    <string name="license_android_support_fragment_body">
+    <string translatable="false" name="license_android_support_fragment">
+        Android v4 Fragment Library
+    </string>
+    <string translatable="false" name="license_android_support_fragment_body">
         <![CDATA[
 <p>Copyright (C) 2011-2016 The Android Open Source Project</p>
         ]]>
     </string>
-    <string name="license_android_support_appcompat_v7">Android v7 AppCompat Library</string>
-    <string name="license_android_support_appcompat_v7_body">
+    <string translatable="false" name="license_android_support_appcompat_v7">
+        Android v7 AppCompat Library
+    </string>
+    <string translatable="false" name="license_android_support_appcompat_v7_body">
         <![CDATA[
 <p>Copyright (C) 2012-2015 The Android Open Source Project</p>
         ]]>
     </string>
-    <string name="license_android_support_preference_v7">
+    <string translatable="false" name="license_android_support_preference_v7">
         Android v7 Preference Support Library
     </string>
-    <string name="license_android_support_preference_v7_body">
+    <string translatable="false" name="license_android_support_preference_v7_body">
         <![CDATA[
 <p>Copyright (C) 2015 The Android Open Source Project</p>
         ]]>
     </string>
-    <string name="license_android_support_fix_version">24.2.0.0</string>
-    <string name="license_android_support_preference_v7_fix">
+    <string translatable="false" name="license_android_support_fix_version">24.2.0.0</string>
+    <string translatable="false" name="license_android_support_preference_v7_fix">
         Android v7 Preference Support Library Fix
     </string>
-    <string name="license_android_support_preference_v7_fix_body">
+    <string translatable="false" name="license_android_support_preference_v7_fix_body">
         <![CDATA[
 <p>This is free and unencumbered software released into the public domain.</p>
 <p>Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, either
@@ -73,21 +81,25 @@ Some files are released under the Apache License 2.0!<br />
 <p>Copyright (C) 2007 The Android Open Source Project</p>
         ]]>
     </string>
-    <string name="license_android_support_recyclerview_v7">Android v7 RecyclerView Library</string>
-    <string name="license_android_support_recyclerview_v7_body">
+    <string translatable="false" name="license_android_support_recyclerview_v7">
+        Android v7 RecyclerView Library
+    </string>
+    <string translatable="false" name="license_android_support_recyclerview_v7_body">
         <![CDATA[
 <p>Copyright (C) 2013-2014 The Android Open Source Project</p>
         ]]>
     </string>
-    <string name="license_android_support_design">Android Design Support Library</string>
-    <string name="license_android_support_design_body">
+    <string translatable="false" name="license_android_support_design">
+        Android Design Support Library
+    </string>
+    <string translatable="false" name="license_android_support_design_body">
         <![CDATA[
 <p>Copyright (C) 2015 The Android Open Source Project</p>
         ]]>
     </string>
-    <string name="license_android_sdk_version">API 24</string>
-    <string name="license_android_sdk">Android SDK</string>
-    <string name="license_android_sdk_body">
+    <string translatable="false" name="license_android_sdk_version">API 24</string>
+    <string translatable="false" name="license_android_sdk">Android SDK</string>
+    <string translatable="false" name="license_android_sdk_body">
         <![CDATA[
 <p>Terms and Conditions</p>
 <p>This is the Android Software Development Kit License Agreement</p>
