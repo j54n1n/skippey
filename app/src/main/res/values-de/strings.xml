@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Strings related to settings -->
+
+    <!-- General settings -->
+    <string name="pref_header_general">Allgemein</string>
+    <string name="pref_reverse_title">Lautstärketasten invertieren</string>
+    <string name="pref_reverse_summary">
+        Invertiere die Zuordung der Laustärketasten beim überspringen von Musik
+    </string>
+    <string name="pref_timeout_title">Lautstärketasten-Zeitlimit</string>
+    <string name="pref_timeout_unit">ms</string>
+
+
+    <!-- Settings for notifications -->
+    <string name="pref_header_notification">Benachrichtigung</string>
+    <string name="pref_vibrate_title">Vibrations-Rückmeldung</string>
+    <string name="pref_vibrate_summary">Vibriere beim überspringen von Musik</string>
+
+    <!-- Strings related to about dialogs -->
+    <string name="fragment_about">Über die App</string>
+    <string name="fragment_about_version">App-Version</string>
+    <string name="fragment_about_license">Open-Source-Lizenzen</string>
+    <string name="fragment_about_license_summary">Lizenzdetails für Open-Source-Software</string>
+
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Strings related to settings -->
+
+    <!-- General settings -->
+    <string name="pref_header_general">Generale</string>
+    <string name="pref_reverse_title">Inverti pulsanti del volume</string>
+    <string name="pref_reverse_summary">
+        Usi i pulsanti del volume in modo rovescio per fare saltare un brano
+    </string>
+    <string name="pref_timeout_title">Timeout dei pulsanti del volume</string>
+    <string name="pref_timeout_unit">ms</string>
+
+
+    <!-- Settings for notifications -->
+    <string name="pref_header_notification">Notifiche</string>
+    <string name="pref_vibrate_title">Notifica di vibrazione</string>
+    <string name="pref_vibrate_summary">Vibra mentre stai saltando un brano</string>
+
+    <!-- Strings related to about dialogs -->
+    <string name="fragment_about">Informazioni</string>
+    <string name="fragment_about_version">Versione dell\'app</string>
+    <string name="fragment_about_license">Licenze open source</string>
+    <string name="fragment_about_license_summary">
+        Informazioni sulle licenze di software libero
+    </string>
+
+</resources>
