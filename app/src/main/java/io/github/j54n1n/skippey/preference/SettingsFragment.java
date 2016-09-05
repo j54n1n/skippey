@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package io.github.j54n1n.skippey;
+package io.github.j54n1n.skippey.preference;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.preference.Preference;
-import io.github.j54n1n.skippey.preference.SeekBarPreference;
-import io.github.j54n1n.skippey.preference.SeekBarPreferenceDialogFragmentCompat;
+
+import io.github.j54n1n.skippey.R;
 
 import android.support.v7.preference.PreferenceManagerFix;
 import android.view.LayoutInflater;

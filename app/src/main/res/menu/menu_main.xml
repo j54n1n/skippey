@@ -9,4 +9,9 @@
         app:actionLayout="@layout/toolbar_switch"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/action_about"
+        android:title="@string/fragment_about"
+        app:showAsAction="never" />
+
 </menu>

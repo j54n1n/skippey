@@ -20,6 +20,8 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
@@ -28,7 +30,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
 
+import io.github.j54n1n.skippey.about.AboutDialogFragment;
+
 public class MainActivity extends AppCompatActivity {
+
+    private final static String TAG_FRAGMENT_ABOUT = "fragment_about";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,5 +84,30 @@ public class MainActivity extends AppCompatActivity {
             buttonView.setText(buttonView.getTextOff());
         }
         buttonView.setChecked(isChecked);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int itemId = item.getItemId();
+        if (itemId == R.id.action_about) {
+            // Close existing dialog fragments.
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            Fragment fragment = fragmentManager.findFragmentByTag(TAG_FRAGMENT_ABOUT);
+            if (fragment != null) {
+                fragmentManager.beginTransaction().remove(fragment).commit();
+            }
+            AboutDialogFragment aboutDialogFragment = new AboutDialogFragment();
+            aboutDialogFragment.show(fragmentManager, TAG_FRAGMENT_ABOUT);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onPanelClosed(int featureId, Menu menu) {
+        super.onPanelClosed(featureId, menu);
+        // HACK: The appcompat overflow menu interferes with the service switch widget.
+        // Redraw the menu to compensate.
+        invalidateOptionsMenu();
     }
 }

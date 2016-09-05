@@ -24,7 +24,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <fragment
-        android:name="io.github.j54n1n.skippey.SettingsFragment"
+        android:name="io.github.j54n1n.skippey.preference.SettingsFragment"
         android:tag="io.github.j54n1n.skippey.SettingsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
