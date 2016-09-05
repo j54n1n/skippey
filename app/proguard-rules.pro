@@ -16,3 +16,5 @@
 #   public *;
 #}
 -dontobfuscate
+# dontobfuscate workaround:
+-optimizations !code/allocation/variable
