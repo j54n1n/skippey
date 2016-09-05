@@ -26,4 +26,12 @@
         Informazioni sulle licenze di software libero
     </string>
 
+    <!-- Coach overlay -->
+    <string name="coach_main_text">Con un doppio click sui pulsanti del volume mentre il schermo è
+        spento verà effetuato il cambio del brano attuale. La funzionalità può essere abilitato o
+        disabilitato in alto nella barra menu.</string>
+    <string name="coach_main_button">Capito</string>
+    <string name="coach_main_image_desc">Smartphone con schermo disabilitato e pulsanti del volume.
+    </string>
+
 </resources>

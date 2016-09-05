@@ -24,4 +24,12 @@
     <string name="fragment_about_license">Open-Source-Lizenzen</string>
     <string name="fragment_about_license_summary">Lizenzdetails für Open-Source-Software</string>
 
+    <!-- Coach overlay -->
+    <string name="coach_main_text">Drücke zweimal die Lauter-, oder Leiser-Lautstärketaste bei
+        abgeschalteten Bildschirm um ein Musikstück zu überspringen. Die Funktionalität kann in der
+        oberen Menüleiste ein-, oder ausgeschaltet werden.</string>
+    <string name="coach_main_button">Alles klar</string>
+    <string name="coach_main_image_desc">Smartphone mit ausgeschalteten Bildschirm und
+        Lautstärketasten</string>
+
 </resources>
