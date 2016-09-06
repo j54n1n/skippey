@@ -43,6 +43,19 @@ public class SettingsFragment extends PreferenceFragmentCompatDividers
     @Override
     public void onCreatePreferencesFix(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.preferences, rootKey);
+        /*
+        //Example of adding preferences via code.
+        PreferenceScreen preferenceScreen = getPreferenceScreen();
+        PreferenceCategory preferenceCategory = new PreferenceCategory(preferenceScreen.getContext());
+        preferenceCategory.setTitle("Plugins");
+        preferenceScreen.addPreference(preferenceCategory);
+        SwitchPreferenceCompat switchPreference = new SwitchPreferenceCompat(preferenceScreen.getContext());
+        //switchPreference.setKey("");
+        switchPreference.setIcon(R.mipmap.ic_launcher);
+        switchPreference.setTitle("Plugin");
+        switchPreference.setSummary("Desc");
+        preferenceCategory.addPreference(switchPreference);
+        */
         // Set initial preference UI.
         final SharedPreferences sharedPreferences =
                 PreferenceManagerFix.getDefaultSharedPreferences(getActivity());
