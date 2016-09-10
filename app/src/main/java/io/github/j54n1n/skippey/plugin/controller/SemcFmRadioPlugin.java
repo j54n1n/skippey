@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.j54n1n.skippey.plugin.SemcFmRadio;
+package io.github.j54n1n.skippey.plugin.controller;
 
 import android.app.PendingIntent;
 import android.content.Context;
@@ -42,7 +42,8 @@ public final class SemcFmRadioPlugin extends LocalMediaKeyPlugin {
     private PendingIntent previousPendingIntent;
     private PendingIntent nextPendingIntent;
 
-    public SemcFmRadioPlugin(Context context) throws PackageManager.NameNotFoundException {
+    public SemcFmRadioPlugin(Context context) throws PackageManager.NameNotFoundException,
+            UnsupportedOperationException {
         super(context, R.string.plugin_semc_fmradio, R.string.plugin_semc_fmradio_pkg,
                 R.string.plugin_semc_fmradio_desc
         );
@@ -60,7 +61,7 @@ public final class SemcFmRadioPlugin extends LocalMediaKeyPlugin {
                 pendingIntent = nextPendingIntent;
             }
             try {
-                LOGD(TAG, "skipping station with " + previousPendingIntent);
+                LOGD(TAG, "skipping station with " + pendingIntent);
                 pendingIntent.send();
             } catch (PendingIntent.CanceledException e) {
                 LOGE(TAG, "Error sending pending intent.", e);

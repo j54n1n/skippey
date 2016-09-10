@@ -4,5 +4,6 @@
     <string name="plugin_category">Plugin</string>
 
     <string name="plugin_semc_fmradio_desc">Plugin di cambio frequenza</string>
+    <string name="plugin_soundcloud_desc">Plugin di cambio stream</string>
 
 </resources>

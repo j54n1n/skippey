@@ -7,4 +7,8 @@
     <string translatable="false" name="plugin_semc_fmradio_pkg">com.sonyericsson.fmradio</string>
     <string name="plugin_semc_fmradio_desc">Skip radio station plugin</string>
 
+    <string translatable="false" name="plugin_soundcloud">plugin_soundcloud</string>
+    <string translatable="false" name="plugin_soundcloud_pkg">com.soundcloud.android</string>
+    <string name="plugin_soundcloud_desc">Skip stream plugin</string>
+
 </resources>

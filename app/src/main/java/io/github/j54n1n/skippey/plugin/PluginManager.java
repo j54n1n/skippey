@@ -24,7 +24,8 @@ import android.content.IntentFilter;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.j54n1n.skippey.plugin.SemcFmRadio.SemcFmRadioPlugin;
+import io.github.j54n1n.skippey.plugin.controller.SemcFmRadioPlugin;
+import io.github.j54n1n.skippey.plugin.controller.SoundcloudPlugin;
 
 import static io.github.j54n1n.skippey.util.LogUtils.LOGD;
 import static io.github.j54n1n.skippey.util.LogUtils.makeLogTag;
@@ -75,6 +76,9 @@ public class PluginManager extends BroadcastReceiver {
         // Add only plugins that have their app installed in the system.
         try {
             localMediaKeyPlugins.add(new SemcFmRadioPlugin(context));
+        } catch (Exception e) { /* NOT USED */ }
+        try {
+            localMediaKeyPlugins.add(new SoundcloudPlugin(context));
         } catch (Exception e) { /* NOT USED */ }
         // TODO: Add further plugins here.
         for (LocalMediaKeyPlugin localMediaKeyPlugin : localMediaKeyPlugins) {
