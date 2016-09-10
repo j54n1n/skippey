@@ -22,12 +22,16 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.preference.Preference;
 
 import io.github.j54n1n.skippey.R;
+import io.github.j54n1n.skippey.SkippeyApplication;
+import io.github.j54n1n.skippey.plugin.LocalMediaKeyPlugin;
 
 import android.support.v7.preference.PreferenceManagerFix;
+import android.support.v7.preference.PreferenceScreen;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.takisoft.fix.support.v7.preference.PreferenceCategory;
 import com.takisoft.fix.support.v7.preference.PreferenceFragmentCompatDividers;
 
 public class SettingsFragment extends PreferenceFragmentCompatDividers
@@ -43,19 +47,23 @@ public class SettingsFragment extends PreferenceFragmentCompatDividers
     @Override
     public void onCreatePreferencesFix(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.preferences, rootKey);
-        /*
-        //Example of adding preferences via code.
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
-        PreferenceCategory preferenceCategory = new PreferenceCategory(preferenceScreen.getContext());
-        preferenceCategory.setTitle("Plugins");
-        preferenceScreen.addPreference(preferenceCategory);
-        SwitchPreferenceCompat switchPreference = new SwitchPreferenceCompat(preferenceScreen.getContext());
-        //switchPreference.setKey("");
-        switchPreference.setIcon(R.mipmap.ic_launcher);
-        switchPreference.setTitle("Plugin");
-        switchPreference.setSummary("Desc");
-        preferenceCategory.addPreference(switchPreference);
-        */
+        // Add plugin preferences via code.
+        LocalMediaKeyPlugin[] localMediaKeyPlugins =
+                ((SkippeyApplication) getActivity().getApplication()).getPluginManager()
+                        .getLocalMediaKeyPlugins();
+        if (localMediaKeyPlugins.length > 0) {
+            PreferenceScreen preferenceScreen = getPreferenceScreen();
+            PreferenceCategory preferenceCategory =
+                    new PreferenceCategory(preferenceScreen.getContext());
+            preferenceCategory.setTitle(getString(R.string.plugin_category));
+            preferenceScreen.addPreference(preferenceCategory);
+            // Add local plugins.
+            for (LocalMediaKeyPlugin localMediaKeyPlugin : localMediaKeyPlugins) {
+                preferenceCategory.addPreference(
+                        localMediaKeyPlugin.getPreference(preferenceCategory.getContext())
+                );
+            }
+        }
         // Set initial preference UI.
         final SharedPreferences sharedPreferences =
                 PreferenceManagerFix.getDefaultSharedPreferences(getActivity());

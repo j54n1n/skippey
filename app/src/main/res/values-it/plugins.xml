@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="plugin_category">Plugin</string>
+
+    <string name="plugin_semc_fmradio_desc">Plugin di cambio frequenza</string>
+
+</resources>
