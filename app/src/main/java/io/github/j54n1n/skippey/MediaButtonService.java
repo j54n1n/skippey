@@ -32,6 +32,8 @@ import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 
+import io.github.j54n1n.skippey.plugin.LocalMediaKeyPlugin;
+
 import static io.github.j54n1n.skippey.util.LogUtils.makeLogTag;
 import static io.github.j54n1n.skippey.util.LogUtils.LOGD;
 
@@ -166,7 +168,7 @@ public final class MediaButtonService extends Service {
         }
     }
 
-    private static final class SkipTrackInfo {
+    private final class SkipTrackInfo {
 
         private final Context context;
         private final VolumeChangeInfo volumeChangeInfo;
@@ -203,6 +205,14 @@ public final class MediaButtonService extends Service {
             KeyEvent keyEventUp = KeyEvent.changeAction(keyEventDown, KeyEvent.ACTION_UP);
             AudioManagerCompat.dispatchMediaKeyEvent(context, keyEventDown);
             AudioManagerCompat.dispatchMediaKeyEvent(context, keyEventUp);
+            // Else launch one of the enabled plugins.
+            LocalMediaKeyPlugin[] localMediaKeyPlugins = ((SkippeyApplication) getApplication())
+                    .getPluginManager().getLocalMediaKeyPlugins();
+            for (LocalMediaKeyPlugin localMediaKeyPlugin : localMediaKeyPlugins) {
+                if (localMediaKeyPlugin.isEnabled()) {
+                    localMediaKeyPlugin.sendMediaKeyEvent(keyCode);
+                }
+            }
         }
     }
 }

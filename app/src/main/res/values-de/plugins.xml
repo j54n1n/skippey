@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="plugin_category">Erweiterungen</string>
+
+    <string name="plugin_semc_fmradio_desc">Kanalwechsel-Erweiterung</string>
+    <string name="plugin_soundcloud_desc">Stream überspringen Erweiterung</string>
+
+</resources>
